@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosh Wycliff's New Year Message </title>
+    <style>
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-blue: #00f2ff;
+            --neon-gold: #ffcc00;
+            --bg-dark: #050505;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-dark);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2.5rem;
+            border: 2px solid var(--neon-blue);
+            border-radius: 20px;
+            box-shadow: 0 0 20px var(--neon-blue), inset 0 0 15px var(--neon-blue);
+            background: rgba(0, 0, 0, 0.9);
+            width: 85%;
+            max-width: 500px;
+            transition: all 0.6s ease;
+        }
+
+        h1 {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+            font-size: 1.8rem;
+        }
+
+        /* Input Styling */
+        .input-group {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px;
+            border: 1px solid var(--neon-pink);
+            background: transparent;
+            color: white;
+            border-radius: 50px;
+            outline: none;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        button {
+            padding: 12px 40px;
+            background: transparent;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 25px var(--neon-blue);
+        }
+
+        /* Result Area */
+        #result {
+            display: none;
+        }
+
+        .name-display {
+            font-size: 2.8rem;
+            color: var(--neon-blue);
+            text-shadow: 0 0 20px var(--neon-blue);
+            display: block;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease forwards;
+        }
+
+        .message-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #fff;
+            margin-bottom: 25px;
+            animation: fadeInUp 1.5s ease forwards;
+        }
+
+        .signature {
+            font-size: 0.9rem;
+            color: var(--neon-gold);
+            text-shadow: 0 0 8px var(--neon-gold);
+            font-style: italic;
+            border-top: 1px solid rgba(255, 204, 0, 0.3);
+            padding-top: 15px;
+            display: block;
+            animation: fadeIn 2.5s ease forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .celebrate-glow {
+            border-color: var(--neon-pink) !important;
+            box-shadow: 0 0 30px var(--neon-pink), inset 0 0 20px var(--neon-pink) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <div id="formSection">
+            <h1>2026 Awaits...</h1>
+            <div class="input-group">
+                <input type="text" id="userName" placeholder="Enter Your Name" autocomplete="off">
+                <br>
+                <button onclick="revealGreeting()">CLICK ME</button>
+            </div>
+        </div>
+
+        <div id="result">
+            <span class="name-display" id="displayName"></span>
+            <p class="message-text">
+                Happy New Year! May this year bring you closer to your dreams, 
+                filling your life with vibrant colors, endless energy, and 
+                the courage to reach for the stars. ✨
+            </p>
+            <span class="signature">Sent to you by Mosh Wycliff</span>
+        </div>
+    </div>
+
+    <script>
+        function revealGreeting() {
+            const nameInput = document.getElementById('userName');
+            const formSection = document.getElementById('formSection');
+            const resultSection = document.getElementById('result');
+            const displayName = document.getElementById('displayName');
+            const container = document.getElementById('mainContainer');
+
+            if (nameInput.value.trim() === "") {
+                nameInput.style.borderColor = "red";
+                return;
+            }
+
+            // Transition Logic
+            formSection.style.display = 'none';
+            displayName.innerText = nameInput.value + "!";
+            resultSection.style.display = 'block';
+            container.classList.add('celebrate-glow');
+        }
+    </script>
+</body>
+</html>
